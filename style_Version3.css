@@ -1,0 +1,161 @@
+/* Premium Morning Glory theme — refined styles
+   Mobile-first, responsive, soft-glow, glass panels
+*/
+
+:root{
+  --primary: #4A6CF7;
+  --secondary: #9EC5FF;
+  --bg: #F7F9FF;
+  --accent: #FFD36A;
+  --text: #1A1A1A;
+  --muted: #6B7280;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --max-width: 1200px;
+}
+
+*{box-sizing:border-box}
+html{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; font-size:16px; scroll-behavior:smooth;}
+body{margin:0; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+.container{width:clamp(320px,92%,var(--max-width)); margin:0 auto; padding:1rem;}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:120;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(247,249,255,0.7), rgba(247,249,255,0.45));
+  border-bottom:1px solid rgba(26,26,26,0.04);
+}
+.header-row{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:0.65rem 0;}
+.brand{display:flex; align-items:center; gap:0.6rem; text-decoration:none; color:var(--text); font-weight:700;}
+.logo-dot{color:var(--accent); font-size:1.15rem; transform:translateY(-1px);}
+.brand-name{font-family:"Poppins",sans-serif; letter-spacing:0.6px; font-size:0.95rem;}
+
+/* Nav */
+.nav-toggle{background:transparent; border:0; padding:0.4rem; display:inline-flex; align-items:center; cursor:pointer;}
+.hamburger{width:22px; height:2px; background:var(--text); position:relative; display:block;}
+.hamburger::before, .hamburger::after{content:""; position:absolute; left:0; right:0; height:2px; background:var(--text); transition:transform .18s ease;}
+.hamburger::before{top:-7px;} .hamburger::after{bottom:-7px;}
+.nav-list{display:none; gap:1rem; align-items:center;}
+.nav-list a{text-decoration:none; color:var(--text); padding:0.6rem 0.8rem; border-radius:10px; font-weight:600;}
+.nav-list a:hover{background:rgba(74,108,247,0.06);}
+
+/* HERO */
+.hero{
+  min-height:90vh; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;
+  border-bottom-left-radius:20px; border-bottom-right-radius:20px; margin-bottom:1.25rem;
+  box-shadow:0 18px 60px rgba(74,108,247,0.06);
+}
+.hero-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(120deg, rgba(74,108,247,0.95), rgba(158,197,255,0.92) 55%, rgba(255,211,106,0.86));
+  z-index:0;
+  mix-blend-mode:normal;
+}
+.hero-bars.top, .hero-bars.bottom{
+  position:absolute; left:0; right:0; height:8vh; background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0)); z-index:1;
+}
+.hero-bars.top{top:0} .hero-bars.bottom{bottom:0}
+
+.hero-inner{position:relative; z-index:2; text-align:center; color:#fff; padding:2rem 1rem; max-width:960px;}
+.hero-title{font-family:"Poppins",sans-serif; font-size:2rem; margin:0; letter-spacing:1px; text-shadow:0 8px 30px rgba(26,26,26,0.08);}
+.hero-tagline{font-size:1.3rem; margin:0.6rem 0 0.4rem; font-weight:800; letter-spacing:0.4px;}
+.hero-sub{opacity:0.95; margin-bottom:1rem; font-weight:500;}
+.hero-ctas{display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;}
+.btn{display:inline-flex; align-items:center; gap:0.6rem; padding:0.75rem 1.1rem; border-radius:12px; text-decoration:none; font-weight:700; cursor:pointer;}
+.btn-primary{background:linear-gradient(90deg,var(--accent), #ffd36a); color:var(--text); box-shadow:0 10px 30px rgba(255,211,106,0.12);}
+.btn-light{background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.08);}
+.hero-note{margin-top:1rem; opacity:0.95; font-weight:600;}
+
+/* Section base */
+.section{padding:2rem 0;}
+.section h2{font-family:"Poppins",sans-serif; font-size:1.25rem; margin:0 0 0.75rem;}
+.lead{font-size:1rem; margin-bottom:0.6rem;}
+.muted{color:var(--muted)}
+
+/* ABOUT */
+.about-wrap{display:grid; gap:1rem;}
+.about-left{padding:0.25rem 0;}
+.about-right{display:flex; align-items:center; justify-content:center;}
+.glass-photo{position:relative; width:100%; max-width:520px; border-radius:14px; overflow:hidden; box-shadow:0 16px 48px rgba(26,26,26,0.08);}
+.glass-photo img{display:block; width:100%; height:auto; transform:scale(1.03); filter:contrast(0.96) saturate(0.98);}
+
+/* glass accent */
+.glass-accent{position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(120deg, rgba(74,108,247,0.06), rgba(255,211,106,0.06));
+  mix-blend-mode:overlay;}
+
+/* PORTFOLIO */
+.portfolio-grid{display:grid; gap:0.9rem; grid-template-columns:repeat(2,1fr); margin-top:0.8rem;}
+.media-thumb{border-radius:12px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(26,26,26,0.06); cursor:pointer; transition:transform .28s ease, box-shadow .28s ease;}
+.thumb-inner{position:relative; overflow:hidden;}
+.media-thumb img{width:100%; display:block; transition:transform .38s cubic-bezier(.2,.9,.2,1);}
+.play-circle{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:64px; height:64px; border-radius:999px; background:linear-gradient(180deg, rgba(74,108,247,0.9), rgba(158,197,255,0.85)); color:#fff; display:flex; align-items:center; justify-content:center; font-size:22px; box-shadow:0 12px 40px rgba(74,108,247,0.18);}
+.media-thumb figcaption{padding:0.6rem 0.75rem; font-weight:700; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));}
+
+/* hover */
+.media-thumb:hover img, .media-thumb:focus img{transform:scale(1.06)}
+.media-thumb:focus{outline:3px solid rgba(158,197,255,0.28)}
+
+/* SERVICES */
+.services-grid{display:grid; grid-template-columns:1fr; gap:0.9rem;}
+.service-card{background:linear-gradient(180deg, #fff, #fff); border-radius:12px; padding:1rem; box-shadow:0 12px 36px rgba(26,26,26,0.06); transition:transform .2s ease;}
+.service-card:hover{transform:translateY(-6px)}
+.card-head h3{font-family:"Poppins",sans-serif; margin:0 0 0.35rem; font-size:1.05rem}
+
+/* WHY + TESTIMONIALS */
+.why-test-grid{display:grid; gap:1rem;}
+.bullets{list-style:disc; padding-left:1.1rem; font-weight:600;}
+.carousel{position:relative; margin-top:0.6rem;}
+.slides{position:relative; min-height:140px;}
+.testimonial{position:absolute; inset:0; opacity:0; transform:translateY(6px); transition:opacity .45s ease, transform .45s ease; background:#fff; padding:1rem; border-radius:12px; box-shadow:0 12px 36px rgba(26,26,26,0.06);}
+.testimonial.active{opacity:1; transform:translateY(0)}
+.testimonial blockquote{margin:0 0 0.8rem; font-style:italic}
+.carousel-controls{display:flex; gap:0.5rem; margin-top:0.6rem;}
+.carousel-controls button{background:var(--glass); border:1px solid rgba(26,26,26,0.06); padding:0.35rem 0.6rem; border-radius:8px; cursor:pointer; font-size:18px}
+
+/* FINAL CTA */
+.final-cta{background:linear-gradient(90deg,var(--secondary),var(--primary)); color:#fff; border-radius:12px; padding:1.6rem; text-align:center; margin:1.25rem 0;}
+.btn-cta{background:linear-gradient(90deg,var(--accent), #ffd36a); color:var(--text); padding:0.8rem 1.2rem; border-radius:12px; font-weight:800;}
+
+/* CONTACT */
+.contact-wrap{display:grid; gap:1rem;}
+.contact-form{background:#fff; padding:1rem; border-radius:12px; box-shadow:0 12px 36px rgba(26,26,26,0.06);}
+.contact-form label{display:block; margin-top:0.6rem; font-weight:700;}
+.contact-form input, .contact-form textarea{width:100%; padding:0.65rem; border-radius:10px; border:1px solid rgba(26,26,26,0.08); margin-top:0.35rem; font-size:1rem;}
+.form-actions{display:flex; gap:0.6rem; margin-top:0.8rem; flex-wrap:wrap;}
+.contact-info .info-card{background:linear-gradient(180deg,#fff,#fff); padding:1rem; border-radius:12px; box-shadow:0 12px 36px rgba(26,26,26,0.06);}
+
+/* Footer */
+.site-footer{padding:1.25rem 0 2rem; margin-top:1.25rem; border-top:1px solid rgba(26,26,26,0.04);}
+.footer-inner{display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;}
+.f-right a{margin-left:0.6rem; text-decoration:none; color:var(--primary); font-weight:600;}
+.copyright{padding:0.6rem 0; text-align:center; color:var(--muted)}
+
+/* Floating WhatsApp */
+.whatsapp-float{position:fixed; right:1rem; bottom:1rem; z-index:140; background:linear-gradient(180deg,var(--primary),var(--secondary)); width:60px; height:60px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 12px 40px rgba(74,108,247,0.18); color:#fff; text-decoration:none; transform:translateY(0); transition:transform .2s ease;}
+.whatsapp-float:hover{transform:translateY(-4px)}
+
+/* Modal */
+.modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(10,10,10,0.6); z-index:220;}
+.modal[aria-hidden="false"]{display:flex}
+.modal-inner{width:clamp(300px,92%,1100px); padding:1rem; position:relative;}
+.modal-content{background:#000; border-radius:10px; overflow:hidden; aspect-ratio:16/9;}
+.modal-close{position:absolute; right:8px; top:-8px; background:#fff; border-radius:999px; border:none; width:40px; height:40px; font-weight:700; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.12);}
+
+/* Responsive layout */
+@media(min-width:720px){
+  .nav-toggle{display:none}
+  .nav-list{display:flex}
+  .about-wrap{grid-template-columns:1fr 520px; align-items:center; gap:2rem}
+  .portfolio-grid{grid-template-columns:repeat(3,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-test-grid{display:grid; grid-template-columns:360px 1fr; gap:1.25rem}
+  .contact-wrap{grid-template-columns:1fr 360px}
+}
+
+@media(min-width:1100px){
+  .hero-title{font-size:3.4rem}
+  .hero-tagline{font-size:1.6rem}
+  .hero{min-height:96vh}
+}
